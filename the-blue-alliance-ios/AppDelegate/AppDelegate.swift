@@ -336,7 +336,7 @@ extension AppDelegate {
 
         if #available(iOS 15.0, *) {
             let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
+            // tabBarAppearance.configureWithOpaqueBackground()
             tabBarAppearance.selectionIndicatorTintColor = UIColor.tabBarTintColor
 
             UITabBar.appearance().standardAppearance = tabBarAppearance
@@ -344,7 +344,7 @@ extension AppDelegate {
         }
 
         let tabBarAppearance = UITabBar.appearance()
-        tabBarAppearance.isTranslucent = false
+        tabBarAppearance.isTranslucent = true
         tabBarAppearance.tintColor = UIColor.tabBarTintColor
 
         let segmentedControlAppearance = UISegmentedControl.appearance()

@@ -53,7 +53,7 @@ class TBATableViewController: UITableViewController, DataController, Navigatable
 
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
-            tableView.contentInsetAdjustmentBehavior = .never
+            tableView.contentInsetAdjustmentBehavior = .automatic
         }
     }
 
