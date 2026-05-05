@@ -81,7 +81,7 @@ extension UIColor {
         return UIColor { traits in
             traits.userInterfaceStyle == .dark
                 ? UIColor.systemGray5
-                : UIColor.white.withAlphaComponent(0.22)
+            : UIColor.primaryBlue.withAlphaComponent(0.44)
         }
     }
 
