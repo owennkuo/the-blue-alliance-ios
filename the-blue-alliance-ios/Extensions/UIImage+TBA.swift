@@ -22,7 +22,9 @@ extension UIImage {
     static var settingsIcon: UIImage? {
         return UIImage(systemName: "gear")
     }
-
+    static var moreIcon: UIImage? {
+        return UIImage(systemName: "line.3.horizontal")
+    }
     static var sortFilterIcon: UIImage? {
         return UIImage(systemName: "line.horizontal.3.decrease.circle")
     }

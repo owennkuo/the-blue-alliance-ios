@@ -53,14 +53,12 @@ class PhoneRootViewController: UITabBarController, RootController {
                 UINavigationController(rootViewController: MyTBAViewController(dependencies: deps))
             },
             UITab(
-                title: RootType.settings.title,
-                image: RootType.settings.icon,
-                identifier: "tab.settings"
+                title: RootType.more.title,
+                image: RootType.more.icon,
+                identifier: "tab.more"
             ) { _ in
                 UINavigationController(
-                    rootViewController: SettingsViewController(
-                        fcmTokenProvider: fcm,
-                        pushService: push,
+                    rootViewController: MoreViewController(
                         dependencies: deps
                     )
                 )

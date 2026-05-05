@@ -8,6 +8,7 @@ enum RootType: CaseIterable {
     case districts
     case myTBA
     case settings
+    case more
 
     var title: String {
         switch self {
@@ -21,6 +22,8 @@ enum RootType: CaseIterable {
             return "myTBA"
         case .settings:
             return "Settings"
+        case .more:
+            return "More"
         }
     }
 
@@ -36,6 +39,8 @@ enum RootType: CaseIterable {
             return UIImage.starIcon
         case .settings:
             return UIImage.settingsIcon
+        case .more:
+            return UIImage.moreIcon
         }
     }
 
@@ -68,9 +73,11 @@ extension RootController {
             dependencies: dependencies
         )
     }
-
     var myTBAViewController: MyTBAViewController {
         return MyTBAViewController(dependencies: dependencies)
+    }
+    var moreViewController: MoreViewController {
+        return MoreViewController(dependencies: dependencies)
     }
 
 }
