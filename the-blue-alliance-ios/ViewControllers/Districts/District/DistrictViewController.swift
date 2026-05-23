@@ -42,7 +42,7 @@ class DistrictViewController: ContainerViewController {
             dependencies: dependencies
         )
 
-        title = "\(parsedYear) \(district.displayName) Districts"
+        title = "\(parsedYear) \(district.displayName) District"
 
         eventsViewController.delegate = self
         teamsViewController.delegate = self
