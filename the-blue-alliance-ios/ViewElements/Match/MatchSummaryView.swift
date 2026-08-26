@@ -267,9 +267,9 @@ class MatchSummaryView: UIView {
         )
 
         // Add red RP to view
-        addRPToView(stackView: redRPStackView, rpCount: viewModel.redRPCount)
+        addRPToView(stackView: redRPStackView, rps: viewModel.redRPs)
         // Add blue RP to view
-        addRPToView(stackView: blueRPStackView, rpCount: viewModel.blueRPCount)
+        addRPToView(stackView: blueRPStackView, rps: viewModel.blueRPs)
 
         if let redScore = viewModel.redScore {
             redScoreLabel.text = "\(redScore)"
@@ -339,10 +339,18 @@ class MatchSummaryView: UIView {
         stack.directionalLayoutMargins = .init(top: v, leading: 8, bottom: v, trailing: 0)
     }
 
-    private func addRPToView(stackView: UIStackView, rpCount: Int) {
-        for _ in 0..<rpCount {
-            let rpLabel = label(text: "•", isBold: true)
-            stackView.addArrangedSubview(rpLabel)
+    private func addRPToView(stackView: UIStackView, rps: [Bool]?) {
+        guard let rps else { return }
+        let config = UIImage.SymbolConfiguration(pointSize: 5, weight: .bold)
+        for earned in rps {
+            let image = UIImage(
+                systemName: earned ? "circle.fill" : "circle",
+                withConfiguration: config
+            )
+            let imageView = UIImageView(image: image)
+            imageView.tintColor = earned ? .label : .secondaryLabel
+            imageView.contentMode = .center
+            stackView.addArrangedSubview(imageView)
         }
     }
 
@@ -383,7 +391,12 @@ class MatchSummaryView: UIView {
         return button
     }
 
-    private func label(text: String, isBold: Bool, isStrikethrough: Bool = false) -> UILabel {
+    private func label(
+        text: String,
+        isBold: Bool,
+        isStrikethrough: Bool = false,
+        color: UIColor = .label
+    ) -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
         label.attributedText = customAttributedString(
@@ -392,7 +405,7 @@ class MatchSummaryView: UIView {
             isStrikethrough: isStrikethrough
         )
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.label
+        label.textColor = color
         return label
     }
 
